@@ -5,6 +5,8 @@ return {
 	},
 	opts = {
 		backend = "kitty", -- or "wezterm"
+		hijack_buffer_gutters = false,
+		excluded_filetypes = { "terminal", "tutor", "minifiles", "qf" },
 		integrations = {
 			markdown = {
 				enabled = true,
