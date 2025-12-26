@@ -4,9 +4,13 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	opts = {
-		backend = "kitty", -- or "wezterm"
+		backend = "kitty", -- or any other terminal backend
+
+		hijack_file_patterns = {},
+
+		hijack_directories = false,
 		hijack_buffer_gutters = false,
-		excluded_filetypes = { "terminal", "tutor", "minifiles", "qf" },
+
 		integrations = {
 			markdown = {
 				enabled = true,
@@ -18,9 +22,16 @@ return {
 				enabled = true,
 			},
 		},
-		max_width = nil,
-		max_height = nil,
-		max_width_window_percentage = nil,
+
+		skip_filetypes = {
+			"minifiles",
+			"neo-tree",
+			"dashboard",
+			"alpha",
+			"qf",
+			"terminal",
+		},
+
 		max_height_window_percentage = 50,
 		window_overlap_clear_enabled = true,
 	},

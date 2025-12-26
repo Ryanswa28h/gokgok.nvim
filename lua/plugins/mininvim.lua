@@ -13,11 +13,11 @@ return {
 				preview = true,
 				width_preview = 65,
 			},
-			content = {
-				filter = function(entry)
-					return entry.fs_type ~= "file" or not entry.name:match("%.jpg$") and not entry.name:match("%.png$")
-				end,
-			},
+			-- content = {
+			-- 	filter = function(entry)
+			-- 		return entry.fs_type ~= "file" or not entry.name:match("%.jpg$") and not entry.name:match("%.png$")
+			-- 	end,
+			-- },
 		})
 		require("mini.cursorword").setup()
 		require("mini.bracketed").setup()
