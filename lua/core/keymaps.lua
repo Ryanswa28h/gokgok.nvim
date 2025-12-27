@@ -7,6 +7,9 @@ vim.g.maplocalleader = " "
 -- For conciseness
 local opts = { noremap = true, silent = true }
 
+-- Show all keymaps
+vim.keymap.set("n", "<leader>lm", "<cmd>Telescope keymaps<CR>")
+
 -- Move around text in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
