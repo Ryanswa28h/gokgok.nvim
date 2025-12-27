@@ -37,6 +37,7 @@ require("lazy").setup({
 	require("plugins.comment"),
 	require("plugins.jupyter"),
 	require("plugins.codeium"),
+	-- require("plugins.copilot"), -- Inline autocomplete with copilot
 	require("plugins.ui"),
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),

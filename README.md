@@ -8,14 +8,14 @@ Designed for speed, ease of use, and out-of-the-box functionality with a curated
 
 ## 🌟 Features
 
-* **nvim-cmp** for autocompletion
-* **Built-in LSP configurations** (Lua, Python, C/C++, JSON, YAML, Bash, Docker, etc.)
-* **Treesitter** for advanced syntax highlighting
-* **Telescope** for fuzzy finding files, symbols, and references
-* Optional animations support via `animations.lua`
-* Custom dashboard (`dashboard.lua`) and prelive setup (`prelive.lua`)
-* File explorer (`neotree.lua`), statusline (`lualine.lua`), and bufferline (`bufferline.lua`)
-* Git integration (`gitsigns.lua`) and commenting utilities (`comment.lua`)
+- **nvim-cmp** for autocompletion
+- **Built-in LSP configurations** (Lua, Python, C/C++, JSON, YAML, Bash, Docker, etc.)
+- **Treesitter** for advanced syntax highlighting
+- **Telescope** for fuzzy finding files, symbols, and references
+- Optional animations support via `animations.lua`
+- Custom dashboard (`dashboard.lua`) and prelive setup (`prelive.lua`)
+- File explorer (`neotree.lua`), statusline (`lualine.lua`), and bufferline (`bufferline.lua`)
+- Git integration (`gitsigns.lua`) and commenting utilities (`comment.lua`)
 
 ---
 
@@ -23,24 +23,24 @@ Designed for speed, ease of use, and out-of-the-box functionality with a curated
 
 Before installing Botakvim, make sure you have the following installed:
 
-* **Neovim 0.9+**
-* **Git**
-* **Python 3** (optional, for `pyright` LSP)
-* **Node.js / npm** (optional, for some LSPs and plugins)
-* **make** (optional, for building some plugins)
+- **Neovim 0.9+**
+- **Git**
+- **Python 3** (optional, for `pyright` LSP)
+- **Node.js / npm** (optional, for some LSPs and plugins)
+- **make** (optional, for building some plugins)
 
 Optional LSPs and tools installed via Mason.nvim (`mason.lua`):
 
-* Lua: `lua-language-server`
-* Python: `pyright`, `ruff`
-* C/C++: `clangd`
-* JSON: `json-lsp`
-* SQL: `sqlls`
-* YAML: `yaml-language-server`
-* Bash: `bash-language-server`
-* Docker: `docker-language-server`, `docker-compose-language-service`
-* HTML: `html-lsp`
-* Formatter: `stylua`
+- Lua: `lua-language-server`
+- Python: `pyright`, `ruff`
+- C/C++: `clangd`
+- JSON: `json-lsp`
+- SQL: `sqlls`
+- YAML: `yaml-language-server`
+- Bash: `bash-language-server`
+- Docker: `docker-language-server`, `docker-compose-language-service`
+- HTML: `html-lsp`
+- Formatter: `stylua`
 
 Lazy.nvim + Mason.nvim will automatically install most of these.
 
@@ -105,6 +105,7 @@ macOS:
 ```bash
 brew install python
 ```
+
 ---
 
 **4. (Optional) Node.js**
@@ -208,8 +209,8 @@ git clone https://github.com/Ryanswa28h/botak.nvim.git ~/.config/nvim
 nvim
 ```
 
-* Lazy.nvim will automatically install all plugins and LSP servers defined in your config.
-* Wait for the plugin installation to finish.
+- Lazy.nvim will automatically install all plugins and LSP servers defined in your config.
+- Wait for the plugin installation to finish.
 
 ### 4. Verify plugin installation
 
@@ -262,8 +263,8 @@ git clone https://github.com/Ryanswa28h/botak.nvim.git $env:LOCALAPPDATA\nvim
 nvim
 ```
 
-* Lazy.nvim will automatically install all plugins and LSP servers defined in your config.
-* First startup may take a few minutes.
+- Lazy.nvim will automatically install all plugins and LSP servers defined in your config.
+- First startup may take a few minutes.
 
 ### 4. Verify plugin installation
 
@@ -278,6 +279,7 @@ Inside Neovim:
 ```vim
 :Codeium Auth
 ```
+
 A browser window will open asking for authentication.
 
 Optionally, if you don't want AI features, you can comment `require("plugins.codeium")` inside of `init.lua`.
@@ -292,34 +294,39 @@ Deleting `lazy-lock.json` allows plugin updates at the cost of stability.
 
 ## 🚀 Usage
 
-* Open files as usual:
+- Open files as usual:
 
 ```bash
 nvim filename
 ```
 
-* Use **`<leader>`** keymaps for LSP, snippets, navigation, and code execution.
-* Common keymaps:
+- Use **`<leader>`** keymaps for LSP, snippets, navigation, and code execution.
+- Default leader key: `SPACE`
+- Common keymaps:
 
-| Action                         | Keymap       |
-| ------------------------------ | ------------ |
-| Go to definition               | `gd`         |
-| Find references                | `gr`         |
-| Rename symbol                  | `<leader>rn` |
-| Execute code in file           | `<leader>r ` |
-| Toggle inlay hints             | `<leader>th` |
-| Fuzzy find workspace symbols   | `<leader>ws` |
-| Accept AI autocomplete         | `<ctrl>g`    |
-| Enable background              | `<leader>bg` |
-| Disable background             | `<leader>dbg`|
-| Persistent theme selector      | `<leader>sth`|
-| Open diagnostics list          | `<leader>q`  |
-| View diagnostics               | `<leader>d`  |
-| Open nvim files                | `<leader>e`  |
-| Open neotree                   | `<leader>E`  |
-| Find the first reference of ...| `s`          |
+| Action                       | Keymap        |
+| ---------------------------- | ------------- |
+| Show all keymaps             | `<leader>lm`  |
+| Go to definition             | `gd`          |
+| Find references              | `gr`          |
+| Rename symbol                | `<leader>rn`  |
+| Execute code in file         | `<leader>r `  |
+| Toggle inlay hints           | `<leader>th`  |
+| Fuzzy find workspace symbols | `<leader>ws`  |
+| Accept AI autocomplete       | `<ctrl>g`     |
+| Enable background            | `<leader>bg`  |
+| Disable background           | `<leader>dbg` |
+| Persistent theme selector    | `<leader>sth` |
+| Open diagnostics list        | `<leader>q`   |
+| View diagnostics             | `<leader>d`   |
+| Open git status menu         | `<leader>gs`  |
+| Toggle screenkey             | `<leader>sk`  |
+| Open mini.diff overlay       | `<leader>gd`  |
+| Open mini.files              | `<leader>e`   |
+| Start mini.jump2d jumping    | `<leader>j`   |
+| Open neotree                 | `<leader>E`   |
 
-*(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)*
+_(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
 ---
 

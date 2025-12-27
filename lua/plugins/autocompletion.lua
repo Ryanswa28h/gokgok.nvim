@@ -22,6 +22,25 @@ return { -- Autocompletion
 
 		-- Snippet collection
 		"rafamadriz/friendly-snippets",
+
+		-- AI Copilot
+		{
+			"zbirenbaum/copilot.lua",
+			cmd = "Copilot",
+			event = "InsertEnter",
+			config = function()
+				require("copilot").setup({
+					suggestion = { enabled = false }, -- Disable ghost text
+					panel = { enabled = false },
+				})
+			end,
+		},
+		{
+			"zbirenbaum/copilot-cmp",
+			config = function()
+				require("copilot_cmp").setup()
+			end,
+		},
 	},
 
 	config = function()
@@ -58,6 +77,7 @@ return { -- Autocompletion
 			Event = "",
 			Operator = "󰆕",
 			TypeParameter = "󰊄",
+			Copilot = "",
 		}
 
 		-- =========================
@@ -86,7 +106,7 @@ return { -- Autocompletion
 			mapping = cmp.mapping.preset.insert({
 				["<C-j>"] = cmp.mapping.select_next_item(),
 				["<C-k>"] = cmp.mapping.select_prev_item(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<CR>"] = cmp.config.disable, -- Set to ["<CR>"] = cmp.mapping.confirm({ select = true }) for accepting currently selected item
 				["<C-Space>"] = cmp.mapping.complete(),
 
 				["<C-l>"] = cmp.mapping(function()
@@ -123,6 +143,7 @@ return { -- Autocompletion
 			}),
 
 			sources = cmp.config.sources({
+				{ name = "copilot", priority = 1250 },
 				{ name = "nvim_lsp", priority = 1000 },
 				{ name = "luasnip", priority = 750 },
 				{ name = "path", priority = 500 },
@@ -137,6 +158,7 @@ return { -- Autocompletion
 
 					-- Source
 					vim_item.menu = ({
+						copilot = "[AI]",
 						nvim_lsp = "[LSP]",
 						luasnip = "[Snip]",
 						buffer = "[Buf]",
