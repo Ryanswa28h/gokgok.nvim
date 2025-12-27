@@ -41,6 +41,7 @@ require("lazy").setup({
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
 	require("plugins.prelive"),
+	require("plugins.toggleterm"),
 	require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
