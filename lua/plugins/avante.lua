@@ -9,6 +9,27 @@ return {
 	opts = {
 		instructions_file = "avante.md",
 		provider = "copilot",
+		providers = {
+			gemini = {
+				model = "gemini-2.5-flash",
+				extra_request_body = {
+					temperature = 0,
+					timeout = 30000,
+					max_tokens = 4096,
+					disable_tools = true,
+					use_ReAct_prompt = false,
+				},
+			},
+			ollama = {
+				endpoint = "http://localhost:11434",
+				model = "qwen2.5:1.5b", -- or your chosen model
+				extra_request_body = {
+					temperature = 0,
+					timeout = 30000,
+					max_tokens = 4096,
+				},
+			},
+		},
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",

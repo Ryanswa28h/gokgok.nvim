@@ -23,7 +23,7 @@ return { -- Autocompletion
 		-- Snippet collection
 		"rafamadriz/friendly-snippets",
 
-		-- AI Copilot
+		-- AI compltetion
 		{
 			"zbirenbaum/copilot.lua",
 			cmd = "Copilot",
