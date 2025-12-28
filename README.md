@@ -220,17 +220,7 @@ Run inside Neovim:
 :Lazy sync
 ```
 
-### 5. Setup Codeium (Optional)
-
-Command:
-
-```
-:Codeium Auth
-```
-
-If you don't want to use Codeium, you can comment `require("plugins.codeium")` inside of `init.lua`.
-
-### 6. Setup Copilot Autocomplete (Optional)
+### 5. Setup Copilot Autocomplete (Optional)
 
 Command:
 
@@ -240,7 +230,7 @@ Command:
 
 If you don't want to use Copilot autocomplete, you can comment `{ name = "copilot", priority = 1250 },` in `plugins/autocomplete.lua`.
 
-### 7. Delete `lazy-lock.json` (Optional)
+### 6. Delete `lazy-lock.json` (Optional)
 
 Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
 
@@ -282,17 +272,9 @@ Inside Neovim:
 :Lazy sync
 ```
 
-### 5. Setup Codeium (Optional)
-
-Command:
-
-```
-:Codeium Auth
-```
-
 If you don't want to use Codeium, you can comment `require("plugins.codeium")` inside of `init.lua`.
 
-### 6. Setup Copilot Autocomplete (Optional)
+### 5. Setup Copilot Autocomplete (Optional)
 
 Command:
 
@@ -302,7 +284,7 @@ Command:
 
 If you don't want to use Copilot autocomplete, you can comment `{ name = "copilot", priority = 1250 },` in `plugins/autocomplete.lua`.
 
-### 7. Delete `lazy-lock.json` (Optional)
+### 6. Delete `lazy-lock.json` (Optional)
 
 Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
 
