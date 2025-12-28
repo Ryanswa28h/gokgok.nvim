@@ -9,7 +9,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		error("Error cloning lazy.nvim:\n" .. out)
 	end
 end
-
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
@@ -41,6 +40,7 @@ require("lazy").setup({
 	require("plugins.ui"),
 	require("plugins.navigation"),
 	require("plugins.diagnostics"),
+	require("plugins.avante"),
 	require("plugins.prelive"),
 	require("plugins.toggleterm"),
 	require("plugins.image"),

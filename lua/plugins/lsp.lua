@@ -92,6 +92,7 @@ return {
 				-- The following code creates a keymap to toggle inlay hints in your
 				-- code, if the language server you are using supports them
 				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+					client.server_capabilities.semanticTokensProvider = nil
 					map("<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end, "[T]oggle Inlay [H]ints")
@@ -202,8 +203,17 @@ return {
 			-- 1. A fresh empty table (to avoid mutating capabilities globally)
 			-- 2. Your capabilities object with Neovim + cmp features
 			-- 3. Any server-specific cfg.capabilities if defined in `servers`
-			cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
+			for server, cfg in pairs(servers) do
+				cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
 
+				-- Explicitly disable semantic tokens for every server in the loop
+				cfg.on_init = function(client)
+					client.server_capabilities.semanticTokensProvider = nil
+				end
+
+				vim.lsp.config(server, cfg)
+				vim.lsp.enable(server)
+			end
 			vim.lsp.config(server, cfg)
 			vim.lsp.enable(server)
 		end

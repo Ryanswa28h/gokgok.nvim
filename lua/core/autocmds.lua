@@ -34,3 +34,38 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"lua",
+		"python",
+		"javascript",
+		"typescript",
+		"vimdoc",
+		"vim",
+		"regex",
+		"terraform",
+		"sql",
+		"dockerfile",
+		"toml",
+		"json",
+		"java",
+		"groovy",
+		"go",
+		"gitignore",
+		"graphql",
+		"yaml",
+		"make",
+		"cmake",
+		"markdown",
+		"markdown_inline",
+		"bash",
+		"tsx",
+		"css",
+		"html",
+		"cpp",
+	},
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
