@@ -283,7 +283,7 @@ Command:
 :Copilot Setup
 ```
 
-If you don't want to use Copilot autocomplete, you can comment `{ name = "copilot", priority = 1250 },` in `plugins/autocomplete.lua`.
+If you don't want to use Copilot autocomplete, you can delete `copilot` in the `plugins/blink.lua > return > opts > sources > default` table.
 
 ### 6. Delete `lazy-lock.json` (Optional)
 
