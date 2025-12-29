@@ -54,4 +54,33 @@ return {
 			require("colorizer").setup()
 		end,
 	},
+	-- {
+	-- 	-- Code header
+	-- 	"nvim-treesitter/nvim-treesitter-context",
+	-- 	config = function()
+	-- 		vim.keymap.set("n", "co", function()
+	-- 			require("treesitter-context").go_to_context(vim.v.count1)
+	-- 		end, { silent = true })
+	-- 	end,
+	-- },
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = "neovim/nvim-lspconfig",
+		opts = {
+			lsp = {
+				auto_attach = true, -- Automatically attach to any LSP that supports symbols
+			},
+			highlight = true, -- Uses colors for icons (Class is different color than Function)
+			separator = " > ",
+		},
+	},
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
 }

@@ -11,7 +11,7 @@ return {
 		provider = "copilot",
 		providers = {
 			gemini = {
-				model = "gemini-2.5-flash",
+				model = "gemini-2.0-flash",
 				extra_request_body = {
 					temperature = 0,
 					timeout = 30000,

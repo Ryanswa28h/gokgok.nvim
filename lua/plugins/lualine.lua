@@ -81,7 +81,7 @@ return {
 		local diff = {
 			"diff",
 			colored = false,
-			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+			symbols = { added = "+", modified = "~", removed = "-" }, -- changes diff symbols
 			cond = hide_in_width,
 		}
 
@@ -100,11 +100,23 @@ return {
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { "branch" },
-				lualine_c = { filename },
+				-- lualine_c = { filename },
+				lualine_c = {
+					{ "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+					{ "filename", path = 1 }, -- 1 = Relative path
+					{
+						function()
+							return require("nvim-navic").get_location()
+						end,
+						cond = function()
+							return require("nvim-navic").is_available()
+						end,
+					},
+				},
 				lualine_x = {
 					diagnostics,
 					diff,
-					{ "encoding", cond = hide_in_width },
+					-- { "encoding", cond = hide_in_width },
 					{ "filetype", cond = hide_in_width },
 				},
 				lualine_y = { "location" },
