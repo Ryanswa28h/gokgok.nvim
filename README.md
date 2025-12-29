@@ -25,6 +25,7 @@ Before installing Botakvim, make sure you have the following installed:
 
 - **Neovim 0.9+**
 - **Git**
+- A **Nerd Font** (optional, for icons)
 - **Python 3** (optional, for `pyright` LSP)
 - **Node.js / npm** (optional, for some LSPs and plugins)
 - **make** (optional, for building some plugins)
