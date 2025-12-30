@@ -39,6 +39,9 @@ vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
 
+-- EXIT Neovim (Shouldn't be possible)
+vim.keymap.set("n", "<leader>qq", "<cmd> qa <CR>", opts)
+
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)
 
@@ -143,8 +146,8 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Save and load session
-vim.keymap.set("n", "<leader>ss", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>ps", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>pl", ":source .session.vim<CR>", { noremap = true, silent = false })
 
 vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 vim.keymap.set("n", "<leader>E", function()

@@ -84,5 +84,8 @@ return {
 		vim.api.nvim_set_hl(0, "MiniStarterSection", { fg = "#fab387", bold = true })
 		vim.api.nvim_set_hl(0, "MiniStarterItem", { fg = "#cdd6f4" })
 		vim.api.nvim_set_hl(0, "MiniStarterFooter", { fg = "#f38ba8" })
+
+		-- Press Leader + ss to go to Start screen
+		vim.keymap.set("n", "<leader>ss", "<cmd>lua MiniStarter.open()<cr>", { desc = "Open Starter" })
 	end,
 }
