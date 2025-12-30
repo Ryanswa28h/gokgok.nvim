@@ -199,26 +199,26 @@ return {
 		-- Ensure the servers and tools above are installed
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			"stylua", -- Used to format Lua code
+			"checkmake",
+			"prettier",
+			"eslint_d",
+			"shfmt",
+			"stylua",
+			"ruff",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+		-- Single loop to configure servers
 		for server, cfg in pairs(servers) do
-			-- For each LSP server (cfg), we merge:
-			-- 1. A fresh empty table (to avoid mutating capabilities globally)
-			-- 2. Your capabilities object with Neovim + cmp features
-			-- 3. Any server-specific cfg.capabilities if defined in `servers`
-			for server, cfg in pairs(servers) do
-				cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
+			-- Merge capabilities
+			cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
 
-				-- Explicitly disable semantic tokens for every server in the loop
-				cfg.on_init = function(client)
-					client.server_capabilities.semanticTokensProvider = nil
-				end
-
-				vim.lsp.config(server, cfg)
-				vim.lsp.enable(server)
+			-- Disable semantic tokens if you prefer standard highlighting
+			cfg.on_init = function(client)
+				client.server_capabilities.semanticTokensProvider = nil
 			end
+
+			-- Setup server
 			vim.lsp.config(server, cfg)
 			vim.lsp.enable(server)
 		end

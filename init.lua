@@ -26,7 +26,6 @@ require("lazy").setup({
 	require("plugins.misc"),
 	require("plugins.neotree"),
 	require("plugins.treesitter"),
-	-- require("plugins.unused.autocompletion"), -- Replaced by blink (disabled by default)
 	require("plugins.blink"),
 	require("plugins.projects"),
 	require("plugins.dashboard"),
@@ -45,11 +44,11 @@ require("lazy").setup({
 	-- require("plugins.avante"),
 	require("plugins.opencode"),
 	require("plugins.prelive"),
-	require("plugins.toggleterm"),
+	-- require("plugins.toggleterm"),
 	-- require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),
 	require("plugins.neogit"),
-	require("plugins.autoformatting"),
+	require("plugins.conform"),
 	require("plugins.coderunner"),
 })
