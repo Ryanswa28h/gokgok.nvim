@@ -126,11 +126,17 @@ return {
 		cmdline = {
 			enabled = true,
 			keymap = {
-				preset = "super-tab",
+				preset = "none", -- Disable super-tab
+				["<C-y>"] = { "accept", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<Tab>"] = { "select_next", "fallback" },
+				["<S-Tab>"] = { "select_prev", "fallback" },
 			},
 			completion = {
 				menu = {
-					auto_show = true, -- This makes it auto-show like nvim-cmp-cmdline
+					auto_show = true,
 				},
 			},
 		},

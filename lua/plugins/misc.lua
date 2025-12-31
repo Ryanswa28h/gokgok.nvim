@@ -90,4 +90,8 @@ return {
 		---@type quicker.SetupOptions
 		opts = {},
 	},
+	{
+		"ThePrimeagen/vim-be-good",
+		cmd = "VimBeGood",
+	},
 }

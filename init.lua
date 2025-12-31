@@ -18,6 +18,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require("lazy").setup({
 	require("plugins.mininvim"),
+	require("plugins.snacks"),
 	require("plugins.colortheme"),
 	require("plugins.bufferline"),
 	require("plugins.persistence"),
@@ -43,8 +44,9 @@ require("lazy").setup({
 	require("plugins.diagnostics"),
 	-- require("plugins.avante"),
 	require("plugins.opencode"),
+	require("plugins.debug"),
 	require("plugins.prelive"),
-	-- require("plugins.toggleterm"),
+	require("plugins.toggleterm"),
 	-- require("plugins.image"),
 	require("plugins.mason"),
 	require("plugins.lsp"),

@@ -5,7 +5,7 @@ return {
 		require("toggleterm").setup({
 			size = 20,
 			open_mapping = [[<C-\>]],
-			direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
+			direction = "horizontal", -- 'vertical' | 'horizontal' | 'tab' | 'float'
 			float_opts = {
 				border = "curved",
 			},

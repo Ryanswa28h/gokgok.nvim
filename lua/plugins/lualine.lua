@@ -94,7 +94,7 @@ return {
 				--        
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
-				disabled_filetypes = { "alpha", "neo-tree", "ministarter", "undotree" },
+				disabled_filetypes = { "alpha", "neo-tree", "ministarter", "undotree", "snacks_dashboard" },
 				always_divide_middle = true,
 			},
 			sections = {
