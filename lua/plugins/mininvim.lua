@@ -14,7 +14,7 @@ return {
 		require("mini.indentscope").setup({
 			draw = {
 				predicate = function()
-					return vim.bo.filetype ~= "snacks_dashboard"
+					return vim.bo.filetype ~= "snacks_dashboard" and vim.bo.filetype ~= "opencode_terminal"
 				end,
 			},
 			options = {
