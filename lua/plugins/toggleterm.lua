@@ -10,7 +10,7 @@ return {
 				border = "curved",
 			},
 		})
-		vim.keymap.set("n", "<leader>tt", function()
+		vim.keymap.set({ "n", "t" }, "<C-\\>", function()
 			require("toggleterm").toggle()
 		end, { desc = "Toggle terminal" })
 	end,
