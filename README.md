@@ -309,6 +309,10 @@ nvim filename
 
 | Action                       | Keymap        |
 | ---------------------------- | ------------- |
+| Close buffer                 | `<leader>qq`  |
+| Close nvim                   | `<leader>Q`   |
+| Close buffer (Terminal mode) | `<ctrl>q`     |
+| Save file                    | `<ctrl>s`     |
 | Show all keymaps             | `<leader>lm`  |
 | Go to definition             | `gd`          |
 | Find references              | `gr`          |
@@ -324,10 +328,12 @@ nvim filename
 | Open diagnostics list        | `<leader>q`   |
 | View diagnostics             | `<leader>d`   |
 | Open git status menu         | `<leader>gs`  |
-| Toggle screenkey             | `<leader>sk`  |
+| Toggle keystroke overlay     | `<leader>sk`  |
 | Open mini.diff overlay       | `<leader>gd`  |
 | Open mini.files              | `<leader>e`   |
 | Start mini.jump2d jumping    | `<leader>j`   |
+| Toggle opencode              | `<F4>`        |
+| Toggle terminal              | `<ctrl>\`     |
 | Open neotree                 | `<leader>E`   |
 
 _(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
