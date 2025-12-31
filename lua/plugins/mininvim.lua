@@ -19,6 +19,7 @@ return {
 						"opencode_terminal",
 						"toggleterm",
 						"lazy",
+						"Floaterm",
 					}
 					return not vim.tbl_contains(exclude, vim.bo.filetype)
 				end,
