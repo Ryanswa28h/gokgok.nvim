@@ -11,13 +11,5 @@ return {
 				border = "curved",
 			},
 		})
-
-		vim.keymap.set("n", "<leader>tt", "<Cmd>execute v:count . 'ToggleTerm'<CR>", { desc = "Toggle Terminal" })
-		vim.keymap.set(
-			{ "n", "t", "v" },
-			"<C-\\>",
-			"<Cmd>execute v:count . 'ToggleTerm'<CR>",
-			{ desc = "Toggle Terminal" }
-		)
 	end,
 }

@@ -174,3 +174,7 @@ vim.keymap.set("n", "<leader>e", function()
 end, { desc = "Open MiniFiles (file parent or home)" })
 
 vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
+
+-- Terminal
+vim.keymap.set("n", "<leader>tt", "<Cmd>FloatermToggle<CR>", { desc = "Toggle Terminal" })
+vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<Cmd>FloatermToggle<CR>", { desc = "Toggle Terminal" })
