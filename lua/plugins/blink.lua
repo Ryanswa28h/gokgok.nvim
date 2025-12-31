@@ -83,7 +83,7 @@ return {
 
 		completion = {
 			menu = {
-				border = "rounded",
+				border = "rounded", -- "single", "rounded", "double", "solid", "shadow"
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 				draw = {
 					columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
@@ -107,7 +107,7 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 0,
 				window = {
-					border = "rounded",
+					border = "rounded", -- "single", "rounded", "double", "solid", "shadow"
 					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
 				},
 			},
