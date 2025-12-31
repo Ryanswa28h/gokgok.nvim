@@ -1,17 +1,17 @@
 return {
-	{
-		"rcarriga/nvim-notify",
-		opts = {
-			timeout = 3000,
-			render = "compact",
-		},
-		init = function()
-			require("notify").setup({
-				background_colour = "#303030",
-			})
-			vim.notify = require("notify")
-		end,
-	},
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	opts = {
+	-- 		timeout = 3000,
+	-- 		render = "compact",
+	-- 	},
+	-- 	init = function()
+	-- 		require("notify").setup({
+	-- 			background_colour = "#303030",
+	-- 		})
+	-- 		vim.notify = require("notify")
+	-- 	end,
+	-- },
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",

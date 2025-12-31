@@ -4,17 +4,15 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		-- Disable the Snacks dashboard so it doesn't conflict with mini.starter
-		dashboard = { enabled = false },
-
 		scroll = { enabled = true },
+		bufdelete = { enabled = true },
 		animate = { enabled = true },
 		debug = { enabled = true },
 		quickfile = { enabled = true },
 		zen = { enabled = true },
-		rename = { enabled = true },
-
-		-- Bigfile: handles massive files gracefully (optional but recommended)
+		layout = { enabled = true },
+		lazygit = { enabled = true },
+		notifier = { enabled = true, timeout = 4200 },
 		bigfile = { enabled = true },
 	},
 	keys = {
@@ -34,6 +32,37 @@ return {
 			end,
 			desc = "Snacks Debug",
 		},
-		-- Picker: Common keybinds to replace Telescope
+		-- Bufdelete others
+		{
+			"<leader>xo",
+			function()
+				Snacks.bufdelete.other()
+			end,
+			desc = "Delete Other Buffers",
+		},
+		-- Open Lazygit
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Lazygit",
+		},
+		-- Notification History
+		{
+			"<leader>nh",
+			function()
+				Snacks.notifier.show_history()
+			end,
+			desc = "Notification History",
+		},
+		-- Dismiss All Notifications
+		{
+			"<leader>nd",
+			function()
+				Snacks.notifier.hide()
+			end,
+			desc = "Dismiss All Notifications",
+		},
 	},
 }

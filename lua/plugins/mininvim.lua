@@ -11,7 +11,25 @@ return {
 		require("mini.bracketed").setup()
 		require("mini.clue").setup()
 		require("mini.pairs").setup()
-		require("mini.indentscope").setup()
+		require("mini.indentscope").setup({
+			draw = {
+				predicate = function()
+					return vim.bo.filetype ~= "snacks_dashboard"
+				end,
+			},
+			options = {
+				exclude_filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"lazy",
+					"mason",
+					"snacks_dashboard",
+				},
+			},
+		})
 		require("mini.bufremove").setup()
 		require("mini.move").setup()
 		require("mini.operators").setup()

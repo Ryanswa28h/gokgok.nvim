@@ -1,91 +1,124 @@
-local function get_footer()
+local function telescope(picker)
 	return function()
-		local stats = require("lazy").stats()
-		local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-		return "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms"
+		local ok, builtin = pcall(require, "telescope.builtin")
+		if ok then
+			builtin[picker]()
+		else
+			print("Telescope not found")
+		end
 	end
 end
 
 return {
-	{
-		"echasnovski/mini.starter",
-		version = false,
-		event = "VimEnter",
-		config = function()
-			local starter = require("mini.starter")
-
-			-- Helper: Telescope Wrapper
-			local function telescope(picker)
-				return function()
-					local ok, builtin = pcall(require, "telescope.builtin")
-					if ok then
-						builtin[picker]()
-					else
-						print("Telescope not found")
-					end
-				end
-			end
-
-			starter.setup({
-				evaluate_single = true,
-				header = [[
-	Botak ██████╗  ██████╗ ████████╗ █████╗ ██╗  ██╗     ███╗   ██╗██╗   ██╗██╗███╗   ███╗ Botak
-	Botak ██╔══██╗██╔═══██╗╚══██╔══╝██╔══██╗██║ ██╔╝     ████╗  ██║██║   ██║██║████╗ ████║ Botak
-	Botak ██████╔╝██║   ██║   ██║   ███████║█████╔╝      ██╔██╗ ██║██║   ██║██║██╔████╔██║ Botak
-	Botak ██╔══██╗██║   ██║   ██║   ██╔══██║██╔═██╗      ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║ Botak
-	Botak ██████╔╝╚██████╔╝   ██║   ██║  ██║██║  ██╗ ██╗ ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ Botak
-	Botak ╚═════╝  ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═╝ ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ Botak
-			]],
-				-- Keybindings are the first letter of the name (e.g., 'f' for Find File)
-				items = {
-					{ name = "f   Find File", action = telescope("find_files"), section = "Files" },
-					{ name = "n   New File", action = "ene | startinsert", section = "Files" },
-					{ name = "r   Recent Files", action = telescope("oldfiles"), section = "Files" },
+	"folke/snacks.nvim",
+	event = "VimEnter",
+	---@type snacks.Config
+	opts = {
+		-- You need this picker section to fix the "no root box" error
+		picker = {
+			layout = { preset = "telescope" },
+		},
+		dashboard = {
+			width = 80,
+			row = nil,
+			col = nil,
+			pane_gap = 2,
+			autokeys = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+			preset = {
+				pick = nil,
+				keys = {
+					{ icon = " ", key = "f", desc = "Find File", action = telescope("find_files") },
+					{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
 					{
-						name = "p   Projects",
-						action = "lua require'telescope'.extensions.projects.projects{}",
-						section = "Files",
+						icon = " ",
+						key = "g",
+						desc = "Find Text",
+						action = telescope("live_grep"),
 					},
-					{ name = "g   Find Text", action = telescope("live_grep"), section = "Search" },
 					{
-						name = "c   Config",
+						icon = " ",
+						key = "r",
+						desc = "Recent Files",
+						action = telescope("oldfiles"),
+					},
+					{
+						icon = " ",
+						key = "p",
+						desc = "Projects",
+						action = ":lua require('telescope').extensions.projects.projects{}",
+					},
+					{
+						icon = " ",
+						key = "c",
+						desc = "Config",
 						action = function()
 							require("telescope.builtin").find_files({
 								cwd = vim.fn.stdpath("config"),
 							})
 						end,
-						section = "Config",
 					},
 					{
-						name = "s   Restore Session",
-						action = function()
-							require("persistence").load({ last = true })
-						end,
-						section = "Search",
+						icon = " ",
+						key = "s",
+						desc = "Restore Session",
+						action = ":lua require('persistence').load({ last = true })",
 					},
-					{ name = "l  󰒲 Lazy", action = "Lazy", section = "Config" },
-					{ name = "q   Quit", action = "qa", section = "Quit" },
+					{
+						icon = "󰒲 ",
+						key = "l",
+						desc = "Lazy",
+						action = ":Lazy",
+						enabled = package.loaded.lazy ~= nil,
+					},
+					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
-				footer = get_footer(),
-			})
-
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "MiniStarterOpened",
-				callback = function(args)
-					local buf = args.buf
-					vim.keymap.set("n", "j", [[<Cmd>lua MiniStarter.update_current_item('next')<CR>]], { buffer = buf })
-					vim.keymap.set("n", "k", [[<Cmd>lua MiniStarter.update_current_item('prev')<CR>]], { buffer = buf })
+				header = [[
+██████╗  ██████╗ ████████╗ █████╗ ██╗  ██╗     ███╗   ██╗██╗   ██╗██╗███╗   ███╗
+██╔══██╗██╔═══██╗╚══██╔══╝██╔══██╗██║ ██╔╝     ████╗  ██║██║   ██║██║████╗ ████║
+██████╔╝██║   ██║   ██║   ███████║█████╔╝      ██╔██╗ ██║██║   ██║██║██╔████╔██║
+██╔══██╗██║   ██║   ██║   ██╔══██║██╔═██╗      ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██████╔╝╚██████╔╝   ██║   ██║  ██║██║  ██╗ ██╗ ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═════╝  ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═╝ ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+	]],
+			},
+			formats = {
+				icon = function(item)
+					if item.file and item.icon == "file" or item.icon == "directory" then
+						return Snacks.dashboard.icon(item.file, item.icon)
+					end
+					return { item.icon, width = 2, hl = "icon" }
 				end,
-			})
-
-			-- Colors
-			vim.api.nvim_set_hl(0, "MiniStarterHeader", { fg = "#89b4fa" })
-			vim.api.nvim_set_hl(0, "MiniStarterSection", { fg = "#fab387", bold = true })
-			vim.api.nvim_set_hl(0, "MiniStarterItem", { fg = "#cdd6f4" })
-			vim.api.nvim_set_hl(0, "MiniStarterFooter", { fg = "#f38ba8" })
-
-			-- Press Leader + ss to go to Start screen
-			vim.keymap.set("n", "<leader>ss", "<cmd>lua MiniStarter.open()<cr>", { desc = "Open Starter" })
-		end,
+				footer = { "%s", align = "center" },
+				header = { "%s", align = "center" },
+				file = function(item, ctx)
+					local fname = vim.fn.fnamemodify(item.file, ":~")
+					fname = ctx.width and #fname > ctx.width and vim.fn.pathshorten(fname) or fname
+					if #fname > ctx.width then
+						local dir = vim.fn.fnamemodify(fname, ":h")
+						local file = vim.fn.fnamemodify(fname, ":t")
+						if dir and file then
+							file = file:sub(-(ctx.width - #dir - 2))
+							fname = dir .. "/…" .. file
+						end
+					end
+					local dir, file = fname:match("^(.*)/(.+)$")
+					return dir and { { dir .. "/", hl = "dir" }, { file, hl = "file" } } or { { fname, hl = "file" } }
+				end,
+			},
+			sections = {
+				{ section = "header" },
+				{ section = "keys", gap = 1, padding = 0 },
+				{ section = "startup" },
+			},
+		},
+	},
+	keys = {
+		{
+			"<leader>ss",
+			function()
+				Snacks.dashboard.open()
+			end,
+			desc = "Open Dashboard",
+		},
 	},
 }
