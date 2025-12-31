@@ -126,5 +126,25 @@ return {
 				previewer = false,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
+		vim.keymap.set({ "n", "v" }, "<leader>sr", function()
+			vim.ui.input({ prompt = "Search for: " }, function(search)
+				if not search or search == "" then
+					return
+				end
+				vim.ui.input({ prompt = "Replace with: " }, function(replace)
+					if replace == nil then
+						return
+					end
+					-- Apply replacement to current buffer
+					local cmd = string.format("%%s/%s/%s/g", search, replace)
+					local success, err = pcall(vim.cmd, cmd)
+					if success then
+						print(string.format("Replaced '%s' with '%s'", search, replace))
+					else
+						print("Error: " .. err)
+					end
+				end)
+			end)
+		end, { desc = "[S]earch and [R]eplace" })
 	end,
 }
