@@ -1,5 +1,8 @@
 return {
 	"christoomey/vim-tmux-navigator",
+	init = function()
+		vim.g.tmux_navigator_no_mappings = 1
+	end,
 	config = function()
 		vim.api.nvim_set_keymap("n", "<C-h>", [[<cmd>TmuxNavigateLeft<cr>]], { silent = true, noremap = true })
 		vim.api.nvim_set_keymap("n", "<C-j>", [[<cmd>TmuxNavigateDown<cr>]], { silent = true, noremap = true })
