@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("toggleterm").setup({
 			size = 20,
-			open_mapping = [[<C-\>]],
+			open_mapping = [[<c-\>]],
 			insert_mappings = true,
 			terminal_mappings = true,
 			direction = "horizontal",
@@ -13,5 +13,11 @@ return {
 				border = "curved",
 			},
 		})
+		vim.keymap.set(
+			{ "n", "i", "v" },
+			"<C-\\>",
+			'<Cmd>execute v:count . "ToggleTerm"<CR>',
+			{ desc = "Toggle Terminal" }
+		)
 	end,
 }
