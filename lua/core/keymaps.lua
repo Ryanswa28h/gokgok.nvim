@@ -107,6 +107,10 @@ vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
 vim.keymap.set("i", "jk", "<ESC>", opts)
 vim.keymap.set("i", "kj", "<ESC>", opts)
 
+-- Use 'jk' to exit terminal mode
+vim.keymap.set("t", "jk", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
+vim.keymap.set("t", "kj", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
+
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
