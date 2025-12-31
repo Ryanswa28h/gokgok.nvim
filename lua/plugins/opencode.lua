@@ -8,18 +8,19 @@ return {
 	},
 	config = function()
 		---@type opencode.Opts
+		vim.g.opencode_opts = {}
 
 		-- Required for `opts.events.reload`.
 		vim.o.autoread = true
 
 		-- Recommended/example keymaps.
-		vim.keymap.set({ "n", "x" }, "<leader>oa", function()
+		vim.keymap.set({ "n", "x" }, "<C-a>", function()
 			require("opencode").ask("@this: ", { submit = true })
 		end, { desc = "Ask opencode" })
-		vim.keymap.set({ "n", "x" }, "<leader>ox", function()
+		vim.keymap.set({ "n", "x" }, "<C-x>", function()
 			require("opencode").select()
 		end, { desc = "Execute opencode action…" })
-		vim.keymap.set({ "n", "t" }, "<leader>.", function()
+		vim.keymap.set({ "n", "t" }, "<F4>", function()
 			require("opencode").toggle()
 		end, { desc = "Toggle opencode" })
 

@@ -4,6 +4,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Disable the spacebar key's default behavior in Normal and Visual modes
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
 -- For conciseness
 local opts = { noremap = true, silent = true }
 
@@ -20,11 +23,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Telescope binds
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>")
-vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>sth", "<cmd>Telescope colorscheme enable_preview=true<CR>")
-
--- Disable the spacebar key's default behavior in Normal and Visual modes
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Allow moving the cursor through wrapped lines with j, k
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -40,7 +40,12 @@ vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
 
 -- EXIT Neovim (Shouldn't be possible)
-vim.keymap.set("n", "<leader>qq", "<cmd> qa <CR>", opts)
+vim.keymap.set("n", "<leader>qq", "<cmd> confirm q <CR>", opts)
+vim.keymap.set("n", "<leader>Q", "<cmd> qa <CR>", opts)
+
+-- EXIT Neovim from terminal
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>:confirm q<CR>", opts)
+vim.keymap.set("t", "<C-S-q>", "<C-\\><C-n>:qa<CR>", opts)
 
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)
@@ -163,3 +168,5 @@ vim.keymap.set("n", "<leader>e", function()
 		require("mini.files").open(bufname)
 	end
 end, { desc = "Open MiniFiles (file parent or home)" })
+
+vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
