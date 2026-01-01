@@ -89,6 +89,7 @@ vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", opts)
 vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
 
+-- Navigate between splits in terminal mode
 vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
 vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
 vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
