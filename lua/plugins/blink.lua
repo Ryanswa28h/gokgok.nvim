@@ -70,7 +70,13 @@ return {
 		},
 
 		sources = {
-			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			default = {
+				--"copilot",
+				"lsp",
+				"path",
+				"snippets",
+				"buffer",
+			},
 			providers = {
 				copilot = {
 					name = "copilot",

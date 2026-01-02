@@ -191,7 +191,9 @@ return {
 			-- tailwindcss = {},
 			-- graphql = {},
 			html = { filetypes = { "html", "twig", "hbs" } },
-			-- cssls = {},
+			emmet_ls = {},
+			cssls = {},
+			vtsls = {},
 			-- ltex = {},
 			-- texlab = {},
 		}
@@ -205,6 +207,7 @@ return {
 			"shfmt",
 			"stylua",
 			"ruff",
+			"biome",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
