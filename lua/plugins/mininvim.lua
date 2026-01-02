@@ -10,7 +10,6 @@ return {
 		require("mini.cursorword").setup()
 		require("mini.bracketed").setup()
 		require("mini.clue").setup()
-		require("mini.pairs").setup()
 		require("mini.indentscope").setup({
 			draw = {
 				predicate = function()

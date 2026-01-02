@@ -3,15 +3,7 @@ return {
 	{
 		-- autoclose tags
 		"windwp/nvim-ts-autotag",
-		config = function()
-			require("nvim-ts-autotag").setup({
-				per_filetype = {
-					["html"] = {
-						enable_close = true,
-					},
-				},
-			})
-		end,
+		config = true,
 	},
 	{
 		-- detect tabstop and shiftwidth automatically
@@ -19,6 +11,11 @@ return {
 	},
 	{
 		"RRethy/nvim-treesitter-endwise",
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
 	},
 	{
 		"folke/which-key.nvim",
