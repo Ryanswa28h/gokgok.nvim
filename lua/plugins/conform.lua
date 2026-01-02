@@ -1,7 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
+	event = "VeryLazy",
 	keys = {
 		{
 			"<leader>f",
@@ -13,11 +12,17 @@ return {
 		},
 	},
 	opts = {
+		formatters = {
+			biome = {
+				require_cwd = false, -- Allow running biome even without biome.json
+			},
+		},
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_format", "ruff_organize_imports" },
-			javascript = { "prettier" },
-			typescript = { "prettier" },
+			javascript = { "biome" },
+			typescript = { "biome" },
+			typescriptreact = { "biome" },
 			html = { "prettier" },
 			json = { "prettier" },
 			yaml = { "prettier" },
@@ -28,8 +33,6 @@ return {
 		format_on_save = {
 			timeout_ms = 500,
 			lsp_fallback = true,
-		},
-		formatters = {
 			shfmt = {
 				prepend_args = { "-i", "4" },
 			},
