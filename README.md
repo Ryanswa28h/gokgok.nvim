@@ -1,27 +1,12 @@
-[![image.png](https://i.postimg.cc/QNJCfmdJ/image.png)](https://postimg.cc/Cddw1jDR)
-[![image.png](https://i.postimg.cc/Gmy153xF/image.png)](https://postimg.cc/68tS7XSq)
+[![2026-01-02-16-47.png](https://i.postimg.cc/90skjqTV/2026-01-02-16-47.png)](https://postimg.cc/wRc2XM0b)
 
-A minimal and modern Neovim configuration focused on productivity, and minimalism.
-Designed for speed, ease of use, and out-of-the-box functionality with a curated plugin set.
-
----
-
-## 🌟 Features
-
-- **nvim-cmp** for autocompletion
-- **Built-in LSP configurations** (Lua, Python, C/C++, JSON, YAML, Bash, Docker, etc.)
-- **Treesitter** for advanced syntax highlighting
-- **Telescope** for fuzzy finding files, symbols, and references
-- Optional animations support via `animations.lua`
-- Custom dashboard (`dashboard.lua`) and prelive setup (`prelive.lua`)
-- File explorer (`neotree.lua`), statusline (`lualine.lua`), and bufferline (`bufferline.lua`)
-- Git integration (`gitsigns.lua`) and commenting utilities (`comment.lua`)
+A very minimal but very functional Neovim configuration
 
 ---
 
 ## 📋 Requirements
 
-Before installing Botakvim, make sure you have the following installed:
+Before installing gokgok.nvim, make sure you have the following installed:
 
 - **Neovim 0.9+**
 - **Git**
@@ -131,7 +116,7 @@ brew install node
 
 ### Requirements
 
-Install the following before using Botakvim:
+Install the following before using gokgok.nvim:
 
 **1. Git**
 
@@ -198,10 +183,10 @@ winget install OpenJS.NodeJS
 mv ~/.config/nvim ~/.config/nvim_backup
 ```
 
-### 2. Clone the botak.nvim repository
+### 2. Clone the gokgok.nvim repository
 
 ```bash
-git clone https://github.com/Ryanswa28h/botak.nvim.git ~/.config/nvim
+git clone https://github.com/Ryanswa28h/gokgok.nvim.git ~/.config/nvim
 ```
 
 ### 3. Open Neovim
@@ -221,22 +206,6 @@ Run inside Neovim:
 :Lazy sync
 ```
 
-### 5. Setup Copilot Autocomplete (Optional)
-
-Command:
-
-```
-:Copilot Setup
-```
-
-If you don't want to use Copilot autocomplete, you can delete `copilot` in the `plugins/blink.lua > return > opts > sources > default` table.
-
-### 6. Delete `lazy-lock.json` (Optional)
-
-Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
-
-As a result, you will get newer features at the price of stability.
-
 </details>
 
 <details>
@@ -250,10 +219,10 @@ Open **PowerShell**:
 Rename-Item $env:LOCALAPPDATA\nvim nvim_backup
 ```
 
-### 2. Clone the botak.nvim repository
+### 2. Clone the gokgok.nvim repository
 
 ```powershell
-git clone https://github.com/Ryanswa28h/botak.nvim.git $env:LOCALAPPDATA\nvim
+git clone https://github.com/Ryanswa28h/gokgok.nvim.git $env:LOCALAPPDATA\nvim
 ```
 
 ### 3. Open Neovim
@@ -273,24 +242,6 @@ Inside Neovim:
 :Lazy sync
 ```
 
-If you don't want to use Codeium, you can comment `require("plugins.codeium")` inside of `init.lua`.
-
-### 5. Setup Copilot Autocomplete (Optional)
-
-Command:
-
-```
-:Copilot Setup
-```
-
-If you don't want to use Copilot autocomplete, you can delete `copilot` in the `plugins/blink.lua > return > opts > sources > default` table.
-
-### 6. Delete `lazy-lock.json` (Optional)
-
-Deleting the `lazy-lock.json` file will allow Neovim to update plugins.
-
-As a result, you will get newer features at the price of stability.
-
 </details>
 
 ---
@@ -307,34 +258,23 @@ nvim filename
 - Default leader key: `SPACE`
 - Common keymaps:
 
-| Action                       | Keymap        |
-| ---------------------------- | ------------- |
-| Close buffer                 | `<leader>qq`  |
-| Close nvim                   | `<leader>Q`   |
-| Close buffer (Terminal mode) | `<ctrl>q`     |
-| Save file                    | `<ctrl>s`     |
-| Show all keymaps             | `<leader>lm`  |
-| Go to definition             | `gd`          |
-| Find references              | `gr`          |
-| Rename symbol                | `<leader>rn`  |
-| Execute code in file         | `<leader>r `  |
-| Toggle inlay hints           | `<leader>th`  |
-| Fuzzy find workspace symbols | `<leader>ws`  |
-| Accept autocomplete          | `<ctrl>y`     |
-| Accept AI autocomplete       | `<ctrl>g`     |
-| Enable background            | `<leader>bg`  |
-| Disable background           | `<leader>dbg` |
-| Persistent theme selector    | `<leader>sth` |
-| Open diagnostics list        | `<leader>q`   |
-| View diagnostics             | `<leader>d`   |
-| Open git status menu         | `<leader>gs`  |
-| Toggle keystroke overlay     | `<leader>sk`  |
-| Open mini.diff overlay       | `<leader>gd`  |
-| Open mini.files              | `<leader>e`   |
-| Start mini.jump2d jumping    | `<leader>j`   |
-| Toggle opencode              | `<F4>`        |
-| Toggle terminal              | `<ctrl>\`     |
-| Open neotree                 | `<leader>E`   |
+| Action                       | Keymap       |
+| ---------------------------- | ------------ |
+| Close buffer                 | `<leader>qq` |
+| Close nvim                   | `<leader>Q`  |
+| Close buffer (Terminal mode) | `<ctrl>q`    |
+| Save file                    | `<ctrl>s`    |
+| Show all keymaps             | `<leader>lm` |
+| Go to definition             | `gd`         |
+| Find references              | `gr`         |
+| Rename symbol                | `<leader>rn` |
+| Execute code in file         | `<leader>r ` |
+| Toggle inlay hints           | `<leader>th` |
+| Fuzzy find workspace symbols | `<leader>ws` |
+| Accept autocomplete          | `<ctrl>y`    |
+| Open mini.diff overlay       | `<leader>gd` |
+| Open mini.files              | `<leader>e`  |
+| Start mini.jump2d jumping    | `<leader>j`  |
 
 _(Refer to `lua/core/keymaps.lua` and the `lua/plugins/` modules for full keymap and plugin details.)_
 
