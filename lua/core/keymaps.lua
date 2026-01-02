@@ -34,7 +34,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
 -- save file
-vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
+vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
@@ -46,6 +46,10 @@ vim.keymap.set("n", "<leader>Q", "<cmd> qa <CR>", opts)
 -- EXIT Neovim from terminal
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>:confirm q<CR>", opts)
 vim.keymap.set("t", "<C-S-q>", "<C-\\><C-n>:qa<CR>", opts)
+
+-- Check signature of function under cursor
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
 
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)
