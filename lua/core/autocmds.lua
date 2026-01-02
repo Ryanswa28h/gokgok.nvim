@@ -25,7 +25,7 @@ local neotree = false
 vim.api.nvim_create_autocmd("VimEnter", {
 	once = true,
 	callback = function(data)
-		vim.cmd("ShowkeysToggle") -- Enable showkeys on startup
+		Snacks.dim()
 		if vim.fn.isdirectory(data.file) == 1 then
 			if neotree then
 				vim.cmd("cd " .. data.file)

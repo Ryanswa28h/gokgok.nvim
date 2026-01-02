@@ -61,17 +61,6 @@ return {
 	-- 	end,
 	-- },
 	{
-		"SmiteshP/nvim-navic",
-		dependencies = "neovim/nvim-lspconfig",
-		opts = {
-			lsp = {
-				auto_attach = true, -- Automatically attach to any LSP that supports symbols
-			},
-			highlight = true, -- Uses colors for icons (Class is different color than Function)
-			separator = " > ",
-		},
-	},
-	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
 		opts = {
@@ -87,9 +76,4 @@ return {
 		---@type quicker.SetupOptions
 		opts = {},
 	},
-	{
-		"ThePrimeagen/vim-be-good",
-		cmd = "VimBeGood",
-	},
-	{ "nvzone/showkeys", cmd = "ShowkeysToggle", opts = { maxkeys = 5, timeout = 3 } },
 }

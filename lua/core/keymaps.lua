@@ -33,6 +33,9 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- clear highlights
 vim.keymap.set("n", "<Esc>", ":noh<CR>", opts)
 
+-- Open lazy
+vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<CR>", opts)
+
 -- save file
 vim.keymap.set({ "n", "i" }, "<C-s>", "<cmd> w <CR>", opts)
 
@@ -73,9 +76,6 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "L", ":bnext<CR>", opts)
 vim.keymap.set("n", "H", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<C-i>", "<C-i>", opts) -- to restore jump forward
-vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", opts) -- close buffer
-vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
 -- Increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", opts) -- increment
@@ -127,37 +127,9 @@ vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", opts)
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
 
--- Replace word under cursor
-vim.keymap.set("n", "<leader>j", "*``cgn", opts)
-
 -- Explicitly yank to system clipboard (highlighted and entire row)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-
--- Toggle diagnostics
-local diagnostics_active = true
-
-vim.keymap.set("n", "<leader>do", function()
-	diagnostics_active = not diagnostics_active
-
-	if diagnostics_active then
-		vim.diagnostic.enable(true)
-	else
-		vim.diagnostic.enable(false)
-	end
-end)
-
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", function()
-	vim.diagnostic.jump({ count = -1, float = true })
-end, { desc = "Go to previous diagnostic message" })
-
-vim.keymap.set("n", "]d", function()
-	vim.diagnostic.jump({ count = 1, float = true })
-end, { desc = "Go to next diagnostic message" })
-
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Save and load session
 vim.keymap.set("n", "<leader>ps", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
@@ -177,9 +149,3 @@ vim.keymap.set("n", "<leader>e", function()
 		require("mini.files").open(bufname)
 	end
 end, { desc = "Open MiniFiles (file parent or home)" })
-
-vim.keymap.set("n", "<leader>sk", "<cmd>ShowkeysToggle<CR>", { desc = "Toggle Showkeys" })
-
--- Terminal
-vim.keymap.set("n", "<leader>tt", "<Cmd>FloatermToggle<CR>", { desc = "Toggle Terminal" })
-vim.keymap.set({ "n", "t", "v" }, "<C-\\>", "<Cmd>FloatermToggle<CR>", { desc = "Toggle Terminal" })

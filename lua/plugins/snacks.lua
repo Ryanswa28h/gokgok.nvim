@@ -10,6 +10,7 @@ return {
 		debug = { enabled = true },
 		quickfile = { enabled = true },
 		zen = { enabled = true },
+		dim = { enabled = true },
 		layout = { enabled = true },
 		lazygit = { enabled = true },
 		notifier = { enabled = true, timeout = 4200 },
