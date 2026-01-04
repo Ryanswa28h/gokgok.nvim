@@ -1,4 +1,4 @@
-[![2026-01-02-16-47.png](https://i.postimg.cc/90skjqTV/2026-01-02-16-47.png)](https://postimg.cc/wRc2XM0b)
+![gokgok.nvim logo](https://i.imgur.com/AYgyuPf.png)
 
 A very minimal but very functional Neovim configuration
 
